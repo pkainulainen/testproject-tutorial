@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
  * This test exists only so that we can check that the created
  * jar file contains our test case.
  */
-public class WebSiteTitleTest implements WebTest {
+public class WebExampleTest implements WebTest {
 
     @Override
     public ExecutionResult execute(WebTestHelper webTestHelper) throws FailureException {
