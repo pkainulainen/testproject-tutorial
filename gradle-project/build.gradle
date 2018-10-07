@@ -1,12 +1,15 @@
 apply plugin: 'java'
 
+compileJava.options.encoding = 'UTF-8'
+
 configurations {
     tpsdk
     compile.extendsFrom tpsdk
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
+dependencies {
+    //Configure the location of the TestProject SDK
+    tpsdk files('libs/io.testproject.sdk.java.jar')
 }
 
 jar {
@@ -18,9 +21,4 @@ jar {
             it.isDirectory() ? it : zipTree(it)
         }
     }
-}
-
-dependencies {
-    //Configure the location of the TestProject SDK
-    tpsdk files('libs/io.testproject.sdk.java.jar')
 }
