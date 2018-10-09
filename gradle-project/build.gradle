@@ -21,4 +21,13 @@ jar {
             it.isDirectory() ? it : zipTree(it)
         }
     }
+
+    //Include the used SDK version in the created jar file
+    from {
+        (configurations.tpsdk).collect {
+            zipTree(it).matching {
+                include 'testproject-sdk.properties'
+            }
+        }
+    }
 }
