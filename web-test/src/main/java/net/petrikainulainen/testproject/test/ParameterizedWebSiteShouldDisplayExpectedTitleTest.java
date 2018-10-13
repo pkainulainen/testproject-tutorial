@@ -17,7 +17,7 @@ import org.openqa.selenium.WebDriver;
  *     <li>The {@code url} parameter contains the url of the opened website.</li>
  * </ul>
  */
-public class ParameterizedWebSiteTitleTest implements WebTest {
+public class ParameterizedWebSiteShouldDisplayExpectedTitleTest implements WebTest {
 
     @TestParameter(defaultValue = "Petri Kainulainen — Developing Software With Passion")
     public String expectedTitle;

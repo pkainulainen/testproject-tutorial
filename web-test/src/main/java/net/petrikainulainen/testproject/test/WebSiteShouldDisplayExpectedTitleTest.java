@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
  * web test that doesn't require any parameters from the
  * TestProject framework.
  */
-public class WebSiteTitleTest implements WebTest {
+public class WebSiteShouldDisplayExpectedTitleTest implements WebTest {
 
     @Override
     public ExecutionResult execute(WebTestHelper webTestHelper) throws FailureException {
