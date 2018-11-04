@@ -14,7 +14,7 @@ import io.testproject.java.sdk.v2.tests.helpers.WebTestHelper;
  */
 @Test(
         name = "My website should display the expected title",
-        description= "Verify that my website has the title: Petri Kainulainen — Developing Software With Passion"
+        description= "Verify that my website displays the title: Petri Kainulainen — Developing Software With Passion"
 )
 public class WebSiteShouldDisplayExpectedTitleTest implements WebTest {
 
