@@ -25,7 +25,7 @@ public class ClearBlogSearchFieldAction implements WebAction {
     public ExecutionResult execute(WebAddonHelper webAddonHelper) throws FailureException {
         WebDriver browser = webAddonHelper.getDriver();
 
-        WebElement searchField = browser.findElement(By.cssSelector(".search_form #s"));
+        WebElement searchField = browser.findElement(By.id("s"));
         if (!searchField.isDisplayed()) {
             return ExecutionResult.FAILED;
         }
