@@ -27,6 +27,7 @@ public class ClearBlogSearchFieldAction implements WebAction {
 
         WebElement searchField = browser.findElement(By.id("s"));
         if (!searchField.isDisplayed()) {
+            webAddonHelper.getReporter().result("No input field was found with the id: s");
             return ExecutionResult.FAILED;
         }
 
