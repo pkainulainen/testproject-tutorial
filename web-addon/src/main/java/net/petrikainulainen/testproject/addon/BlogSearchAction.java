@@ -22,7 +22,7 @@ import org.openqa.selenium.WebElement;
 @Action(name = "Enter the search term and submit the search form")
 public class BlogSearchAction implements WebAction {
 
-    @ActionParameter
+    @ActionParameter(description = "Contains the search term that is entered to the search form")
     private String searchTerm;
 
     @Override

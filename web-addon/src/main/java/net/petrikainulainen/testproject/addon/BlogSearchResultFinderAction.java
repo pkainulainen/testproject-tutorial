@@ -22,15 +22,17 @@ import java.util.List;
 @Action(name = "Finds the number of search results")
 public class BlogSearchResultFinderAction implements WebAction {
 
-    @ActionParameter(direction = ParameterDirection.OUTPUT)
-    private long searchResultCount;
+    @ActionParameter(description = "Speficies the number of expected search results",
+            direction = ParameterDirection.OUTPUT
+    )
+    private long expectedSearchResultCount;
 
     @Override
     public ExecutionResult execute(WebAddonHelper webAddonHelper) {
         WebDriver browser = webAddonHelper.getDriver();
 
         List<WebElement> searchResults = browser.findElements(By.cssSelector(".template-search .content .post_box"));
-        searchResultCount = searchResults.size();
+        expectedSearchResultCount = searchResults.size();
 
         return ExecutionResult.PASSED;
     }
