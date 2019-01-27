@@ -1,7 +1,7 @@
 package net.petrikainulainen.testproject.addon;
 
 import io.testproject.java.annotations.v2.Action;
-import io.testproject.java.annotations.v2.ActionParameter;
+import io.testproject.java.annotations.v2.Parameter;
 import io.testproject.java.sdk.v2.addons.WebAction;
 import io.testproject.java.sdk.v2.addons.helpers.WebAddonHelper;
 import io.testproject.java.sdk.v2.enums.ExecutionResult;
@@ -22,7 +22,7 @@ import org.openqa.selenium.WebElement;
 @Action(name = "Enter the search term and submit the search form")
 public class BlogSearchAction implements WebAction {
 
-    @ActionParameter(description = "Contains the search term that is entered to the search form")
+    @Parameter(description = "Contains the search term that is entered to the search form")
     private String searchTerm;
 
     @Override

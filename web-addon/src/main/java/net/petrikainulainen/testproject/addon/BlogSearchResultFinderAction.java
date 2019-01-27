@@ -1,7 +1,7 @@
 package net.petrikainulainen.testproject.addon;
 
 import io.testproject.java.annotations.v2.Action;
-import io.testproject.java.annotations.v2.ActionParameter;
+import io.testproject.java.annotations.v2.Parameter;
 import io.testproject.java.enums.ParameterDirection;
 import io.testproject.java.sdk.v2.addons.WebAction;
 import io.testproject.java.sdk.v2.addons.helpers.WebAddonHelper;
@@ -22,7 +22,7 @@ import java.util.List;
 @Action(name = "Finds the number of search results")
 public class BlogSearchResultFinderAction implements WebAction {
 
-    @ActionParameter(description = "Speficies the number of expected search results",
+    @Parameter(description = "Speficies the number of expected search results",
             direction = ParameterDirection.OUTPUT
     )
     private long expectedSearchResultCount;
