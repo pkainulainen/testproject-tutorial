@@ -6,6 +6,7 @@ import io.testproject.java.sdk.v2.enums.ExecutionResult;
 import io.testproject.java.sdk.v2.exceptions.FailureException;
 import io.testproject.java.sdk.v2.tests.WebTest;
 import io.testproject.java.sdk.v2.tests.helpers.WebTestHelper;
+import io.testproject.proxy.addon.BlogSearchAddon;
 import io.testproject.proxy.addon.net.petrikainulainen.testproject.addon.BlogSearchAction;
 import io.testproject.proxy.addon.net.petrikainulainen.testproject.addon.ClearBlogSearchFieldAction;
 import org.openqa.selenium.WebDriver;
@@ -35,10 +36,10 @@ public class BlogSearchResultTitleTest implements WebTest {
 
         ActionRunner actionRunner = new ActionRunner(webTestHelper);
 
-        ClearBlogSearchFieldAction clearSearchField = new ClearBlogSearchFieldAction();
+        ClearBlogSearchFieldAction clearSearchField = BlogSearchAddon.getClearBlogSearchFieldAction();
         actionRunner.runAction(clearSearchField);
 
-        BlogSearchAction blogSearch = new BlogSearchAction(searchTerm);
+        BlogSearchAction blogSearch = BlogSearchAddon.blogSearchAction(searchTerm);
         actionRunner.runAction(blogSearch);
 
         return browser.getTitle().equals(expectedSearchResultPageTitle) ? ExecutionResult.PASSED : ExecutionResult.FAILED;

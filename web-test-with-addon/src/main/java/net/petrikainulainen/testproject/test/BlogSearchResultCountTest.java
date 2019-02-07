@@ -35,13 +35,13 @@ public class BlogSearchResultCountTest implements WebTest {
 
         ActionRunner actionRunner = new ActionRunner(webTestHelper);
 
-        ClearBlogSearchFieldAction clearSearchField = new ClearBlogSearchFieldAction();
+        ClearBlogSearchFieldAction clearSearchField = BlogSearchAddon.getClearBlogSearchFieldAction();
         actionRunner.runAction(clearSearchField);
 
-        BlogSearchAction blogSearch = new BlogSearchAction(searchTerm);
+        BlogSearchAction blogSearch = BlogSearchAddon.blogSearchAction(searchTerm);
         actionRunner.runAction(blogSearch);
 
-        BlogSearchResultFinderAction searchResults = new BlogSearchResultFinderAction();
+        BlogSearchResultFinderAction searchResults = BlogSearchAddon.getBlogSearchResultFinderAction();
         actionRunner.runAction(searchResults);
 
         return searchResults.actualSearchResultCount > 0 ? ExecutionResult.PASSED : ExecutionResult.FAILED;
