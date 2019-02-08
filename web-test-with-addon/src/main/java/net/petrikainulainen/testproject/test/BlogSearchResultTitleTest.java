@@ -12,11 +12,11 @@ import io.testproject.proxy.addon.net.petrikainulainen.testproject.addon.BlogSea
 import io.testproject.proxy.addon.net.petrikainulainen.testproject.addon.ClearBlogSearchFieldAction;
 
 /**
- * This test ensures that the search result page has the correct title.
+ * This test ensures that the search result page has the expected title.
  */
 @Test(
-        name = "The search result page should display the correct title",
-        description = "Verifies that the search result page displays the correct title"
+        name = "The search result page must have the expected title",
+        description = "Verifies that the search result page has the expected title"
 )
 public class BlogSearchResultTitleTest implements WebTest {
 

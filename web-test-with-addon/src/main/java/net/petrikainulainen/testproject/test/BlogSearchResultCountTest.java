@@ -13,12 +13,12 @@ import io.testproject.proxy.addon.net.petrikainulainen.testproject.addon.BlogSea
 import io.testproject.proxy.addon.net.petrikainulainen.testproject.addon.ClearBlogSearchFieldAction;
 
 /**
- * This test ensures that the search result page has at least one
+ * This test ensures that the search result page displays at least one
  * search result.
  */
 @Test(
-        name = "The search result page must have at least one search result",
-        description = "Verifies that the search result page has at least one search result"
+        name = "The search result page must display least one search result",
+        description = "Verifies that the search result page displays at least one search result"
 )
 public class BlogSearchResultCountTest implements WebTest {
 
