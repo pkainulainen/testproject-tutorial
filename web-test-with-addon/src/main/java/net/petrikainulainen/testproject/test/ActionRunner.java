@@ -1,6 +1,7 @@
 package net.petrikainulainen.testproject.test;
 
 import io.testproject.java.sdk.v2.addons.proxy.ActionProxy;
+import io.testproject.java.sdk.v2.enums.ExecutionResult;
 import io.testproject.java.sdk.v2.exceptions.FailureException;
 import io.testproject.java.sdk.v2.tests.helpers.WebTestHelper;
 
@@ -28,8 +29,15 @@ class ActionRunner {
      */
     void runAction(ActionProxy proxy) throws FailureException {
         try {
-            webTestHelper.executeProxy(proxy);
-        } catch (Exception e) {
+            ExecutionResult result = webTestHelper.executeProxy(proxy);
+            if (result == ExecutionResult.FAILED) {
+                throw new FailureException(String.format(
+                        "The invocation of the action proxy: %s failed ",
+                        proxy.getDescriptor().getClassName()
+                ));
+            }
+        }
+        catch (Exception e) {
             throw new FailureException(e.getMessage(), e);
         }
     }
