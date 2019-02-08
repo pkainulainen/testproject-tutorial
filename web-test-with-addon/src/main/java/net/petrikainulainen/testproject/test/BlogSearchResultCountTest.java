@@ -2,6 +2,7 @@ package net.petrikainulainen.testproject.test;
 
 import io.testproject.java.annotations.v2.Parameter;
 import io.testproject.java.annotations.v2.Test;
+import io.testproject.java.sdk.v2.drivers.WebDriver;
 import io.testproject.java.sdk.v2.enums.ExecutionResult;
 import io.testproject.java.sdk.v2.exceptions.FailureException;
 import io.testproject.java.sdk.v2.tests.WebTest;
@@ -10,7 +11,6 @@ import io.testproject.proxy.addon.BlogSearchAddon;
 import io.testproject.proxy.addon.net.petrikainulainen.testproject.addon.BlogSearchAction;
 import io.testproject.proxy.addon.net.petrikainulainen.testproject.addon.BlogSearchResultFinderAction;
 import io.testproject.proxy.addon.net.petrikainulainen.testproject.addon.ClearBlogSearchFieldAction;
-import org.openqa.selenium.WebDriver;
 
 /**
  * This test ensures that the search result page has at least one
