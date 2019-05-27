@@ -11,7 +11,10 @@ import java.lang.String;
  * Provides an example how to run coded TestProject tests
  */
 public class TestsForMyWebsite3Runner {
-  public static String developerToken = "qiK0J1WPg_xeA8aqtsq2qzshoMifaeIvJhg7SLLEMio1";
+
+  //If you want to run the exported test by using this runner, go to the Developers
+  //page of the app.testproject.io website and use your developer key.
+  public static String developerToken = "REPLACE_THIS_WITH_YOUR_DEVELOPMENT_KEY";
 
   public static AutomatedBrowserType browserType = AutomatedBrowserType.Chrome;
 
