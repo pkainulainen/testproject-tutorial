@@ -46,4 +46,17 @@ public class BlogSearchResultCountTest implements WebTest {
 
         return searchResults.actualSearchResultCount > 0 ? ExecutionResult.PASSED : ExecutionResult.FAILED;
     }
+
+    //These methods give us the possibility to configure the parameter values
+    //of our test parameters when we run our test on a local development environment.
+    //I added these setter methods because I didn't want to change
+    //the visibility of the test parameter fields because this change could
+    //confuse the readers of my "earlier" blog posts.
+    public void setSearchPageUrl(String searchPageUrl) {
+        this.searchPageUrl = searchPageUrl;
+    }
+
+    public void setSearchTerm(String searchTerm) {
+        this.searchTerm = searchTerm;
+    }
 }
