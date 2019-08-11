@@ -1,0 +1,33 @@
+apply plugin: 'java'
+
+compileJava.options.encoding = 'UTF-8'
+
+configurations {
+    tpsdk
+    compile.extendsFrom tpsdk
+}
+
+dependencies {
+    //Configure the location of the TestProject SDK
+    tpsdk files('libs/io.testproject.sdk.java.jar')
+}
+
+jar {
+    archiveName "${rootProject.name}-${version}.jar"
+    dependsOn configurations.runtime
+    from {
+        //Remove the TestProject SDK from the created jar file
+        (configurations.runtime - configurations.tpsdk).collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+
+    //Include the used SDK version in the created jar file
+    from {
+        (configurations.tpsdk).collect {
+            zipTree(it).matching {
+                include 'testproject-sdk.properties'
+            }
+        }
+    }
+}
