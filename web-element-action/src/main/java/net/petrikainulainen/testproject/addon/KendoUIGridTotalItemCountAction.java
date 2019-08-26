@@ -12,7 +12,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 /**
@@ -31,7 +30,7 @@ public class KendoUIGridTotalItemCountAction implements WebElementAction {
     @Parameter(description = "Contains the total item count of a Kendo UI grid",
             direction = ParameterDirection.OUTPUT
     )
-    private long totalItemCount;
+    private int totalItemCount;
 
     /**
      * Extracts the total item count from the displayed Kendo UI grid and
@@ -54,7 +53,7 @@ public class KendoUIGridTotalItemCountAction implements WebElementAction {
             return ExecutionResult.FAILED;
         }
 
-        Optional<Long> totalItemCount = parseTotalItemCount(totalItemCountLabel.getText());
+        Optional<Integer> totalItemCount = parseTotalItemCount(totalItemCountLabel.getText());
         if (!totalItemCount.isPresent()) {
             reporter.reportResult("Couldn't parse the total item count from the text: %s",
                     totalItemCountLabel.getText()
@@ -68,7 +67,7 @@ public class KendoUIGridTotalItemCountAction implements WebElementAction {
         return ExecutionResult.PASSED;
     }
 
-    private Optional<Long> parseTotalItemCount(String totalItemCountLabel) {
+    private Optional<Integer> parseTotalItemCount(String totalItemCountLabel) {
         String[] labelParts = totalItemCountLabel.split("of");
 
         if (labelParts.length != 2) {
@@ -76,6 +75,6 @@ public class KendoUIGridTotalItemCountAction implements WebElementAction {
         }
 
         String totalItemCount = labelParts[1].replace("items", "").trim();
-        return Optional.of(Long.valueOf(totalItemCount));
+        return Optional.of(Integer.valueOf(totalItemCount));
     }
 }
