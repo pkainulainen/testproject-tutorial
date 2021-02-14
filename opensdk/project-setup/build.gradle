@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+sourceCompatibility = 15
+targetCompatibility = 15
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter-api:5.7.1',
+            'io.testproject:java-sdk:0.65.4-RELEASE'
+    )
+    testRuntime(
+            'org.apache.logging.log4j:log4j-api:2.14.0',
+            'org.apache.logging.log4j:log4j-core:2.14.0',
+            'org.apache.logging.log4j:log4j-slf4j-impl:2.14.0',
+            'org.junit.jupiter:junit-jupiter-engine:5.7.1',
+            'org.slf4j:slf4j-api:1.7.30'
+    )
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+    }
+}
