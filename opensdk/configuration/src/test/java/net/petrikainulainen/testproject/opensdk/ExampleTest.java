@@ -2,6 +2,7 @@ package net.petrikainulainen.testproject.opensdk;
 
 import io.testproject.sdk.DriverBuilder;
 import io.testproject.sdk.drivers.web.ChromeDriver;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,5 +29,10 @@ class ExampleTest {
     @DisplayName("Open HN")
     void openHN() {
         driver.get("https://news.ycombinator.com/");
+    }
+
+    @AfterAll
+    static void shutdownTestProjectOpenSDK() {
+        driver.quit();
     }
 }
