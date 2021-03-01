@@ -2,7 +2,9 @@ package net.petrikainulainen.testproject.opensdk;
 
 import io.testproject.sdk.DriverBuilder;
 import io.testproject.sdk.drivers.web.ChromeDriver;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 /**

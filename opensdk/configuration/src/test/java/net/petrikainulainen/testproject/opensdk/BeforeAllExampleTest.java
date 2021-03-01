@@ -4,7 +4,6 @@ import io.testproject.sdk.DriverBuilder;
 import io.testproject.sdk.drivers.web.ChromeDriver;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
 
