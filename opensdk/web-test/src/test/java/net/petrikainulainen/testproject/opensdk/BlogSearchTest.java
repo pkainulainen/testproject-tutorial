@@ -31,7 +31,7 @@ class BlogSearchTest {
     }
 
     @Nested
-    class WhenNoSearchResultsIsFound {
+    class WhenNoSearchResultsAreFound {
 
         @Test
         void shouldDisplayEmptySearchResultPage() {
