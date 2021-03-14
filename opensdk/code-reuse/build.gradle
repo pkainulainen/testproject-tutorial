@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+sourceCompatibility = 15
+targetCompatibility = 15
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(
+            'org.assertj:assertj-core:3.19.0',
+            'org.junit.jupiter:junit-jupiter-api:5.7.1',
+            'io.testproject:java-sdk:0.65.4-RELEASE'
+    )
+    testRuntime(
+            'org.junit.jupiter:junit-jupiter-engine:5.7.1'
+    )
+}
+
+tasks.withType(Test) { systemProperty 'webdriver.base.url', System.getProperty('webdriver.base.url', 'https://www.petrikainulainen.net') }
+
+test {
+    useJUnitPlatform()
+}
