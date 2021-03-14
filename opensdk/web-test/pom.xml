@@ -4,10 +4,10 @@
     <groupId>net.petrikainulainen.testproject.opensdk</groupId>
     <artifactId>web-test</artifactId>
     <version>0.1</version>
-    <name>Configuring TestProject OpenSDK</name>
+    <name>Writing Tests for a Web Application With TestProject OpenSDK And JUnit 5</name>
     <description>
-        This example demonstrates how you can configure TestProject
-	OpenSDK when you are using JUnit 5.
+        This example demonstrates how you can write tests for a web application with TestProject
+        OpenSDK when you run your tests with JUnit 5.
     </description>
 
     <properties>
