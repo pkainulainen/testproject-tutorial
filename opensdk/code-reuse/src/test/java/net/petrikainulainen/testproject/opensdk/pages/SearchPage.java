@@ -31,11 +31,11 @@ public class SearchPage {
     }
 
     /**
-     * Enters a search term to the search form and submits and the search form.
+     * Finds blog posts by using the specified search term.
      * @param searchTerm    The search term which is entered to the search form.
      * @return  A page object which allows you to interact with the search result page.
      */
-    public SearchResultPage submitSearchForm(String searchTerm) {
+    public SearchResultPage findBlogPostsBySearchTerm(String searchTerm) {
         WebElement searchField = webDriver.findElement(By.id(HTML_ELEMENT_ID_SEARCH_FIELD));
         searchField.sendKeys(searchTerm);
         searchField.sendKeys(Keys.ENTER);
