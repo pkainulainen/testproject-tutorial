@@ -1,0 +1,55 @@
+name: Run TestProject OpenSDK Tests
+
+# Configures the event which triggers this workflow. This workflow is
+# triggered when someone pushes changes to master or creates a pull
+# request to master.
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks out the code so that this workflow can access it.
+      # See: https://github.com/marketplace/actions/checkout
+      - uses: actions/checkout@v2
+      # Configures the JDK version which is used by this workflow (15).
+      # See: https://github.com/marketplace/actions/setup-java-jdk
+      - name: Configure JDK version
+        uses: actions/setup-java@v1
+        with:
+          java-version: 15
+      # Runs the TestProject Agent. 
+      - name: Run TestProject agent
+        env:
+          # Ensures that the TestProject API key is available to the TestProject agent.
+          TP_API_KEY: ${{ secrets.TP_API_KEY }} 
+        # Replaces the TP_API_KEY variable found from the ./github/ci/docker-compose.yml
+        # file with the real value and starts the docker container which runs the
+        # TestProject agent.
+        run: |
+          envsubst < .github/ci/docker-compose.yml > docker-compose.yml
+          docker-compose -f docker-compose.yml up -d
+      # Ensures that the TestProject agent is ready to run your tests.
+      # The TestProject agent is ready to run tests after it has 
+      # suggessfully registered itself to the TestProject platform.
+      # See: https://github.com/marketplace/actions/wait-for-api-action
+      - name: Sleep until the TestProject agent can run tests
+        uses: mydea/action-wait-for-api@v1
+        with:
+          url: http://localhost:8585/api/status
+          expected-response-field: registered
+          expected-response-field-value: true
+          interval: 1
+          timeout: 60       
+      # Runs the tests with Maven.     
+      - name: Run tests with Maven
+        env:
+          # Ensures that the TestProject developer token is provided to TestProject OpenSDK
+          # as an environment variable.
+          TP_DEV_TOKEN: ${{secrets.TP_DEV_TOKEN}}
+        run: mvn clean verify
+        working-directory: opensdk/code-reuse    
